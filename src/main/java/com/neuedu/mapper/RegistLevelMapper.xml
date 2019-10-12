@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.RegistLevelMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.RegistLevel">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="RegistCode" jdbcType="VARCHAR" property="registCode" />
+    <result column="RegistName" jdbcType="VARCHAR" property="registName" />
+    <result column="SequenceNo" jdbcType="INTEGER" property="sequenceNo" />
+    <result column="RegistFee" jdbcType="DECIMAL" property="registFee" />
+    <result column="RegistQuota" jdbcType="INTEGER" property="registQuota" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RegistCode, RegistName, SequenceNo, RegistFee, RegistQuota, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from registlevel
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from registlevel
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.RegistLevel">
+    insert into registlevel (ID, RegistCode, RegistName, 
+      SequenceNo, RegistFee, RegistQuota, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{registCode,jdbcType=VARCHAR}, #{registName,jdbcType=VARCHAR}, 
+      #{sequenceNo,jdbcType=INTEGER}, #{registFee,jdbcType=DECIMAL}, #{registQuota,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.RegistLevel">
+    insert into registlevel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="registCode != null">
+        RegistCode,
+      </if>
+      <if test="registName != null">
+        RegistName,
+      </if>
+      <if test="sequenceNo != null">
+        SequenceNo,
+      </if>
+      <if test="registFee != null">
+        RegistFee,
+      </if>
+      <if test="registQuota != null">
+        RegistQuota,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="registCode != null">
+        #{registCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registName != null">
+        #{registName,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null">
+        #{sequenceNo,jdbcType=INTEGER},
+      </if>
+      <if test="registFee != null">
+        #{registFee,jdbcType=DECIMAL},
+      </if>
+      <if test="registQuota != null">
+        #{registQuota,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.RegistLevel">
+    update registlevel
+    <set>
+      <if test="registCode != null">
+        RegistCode = #{registCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registName != null">
+        RegistName = #{registName,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null">
+        SequenceNo = #{sequenceNo,jdbcType=INTEGER},
+      </if>
+      <if test="registFee != null">
+        RegistFee = #{registFee,jdbcType=DECIMAL},
+      </if>
+      <if test="registQuota != null">
+        RegistQuota = #{registQuota,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.RegistLevel">
+    update registlevel
+    set RegistCode = #{registCode,jdbcType=VARCHAR},
+      RegistName = #{registName,jdbcType=VARCHAR},
+      SequenceNo = #{sequenceNo,jdbcType=INTEGER},
+      RegistFee = #{registFee,jdbcType=DECIMAL},
+      RegistQuota = #{registQuota,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.RegistLevel">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="RegistCode" jdbcType="VARCHAR" property="registCode" />
+    <result column="RegistName" jdbcType="VARCHAR" property="registName" />
+    <result column="SequenceNo" jdbcType="INTEGER" property="sequenceNo" />
+    <result column="RegistFee" jdbcType="DECIMAL" property="registFee" />
+    <result column="RegistQuota" jdbcType="INTEGER" property="registQuota" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RegistCode, RegistName, SequenceNo, RegistFee, RegistQuota, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from registlevel
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from registlevel
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.RegistLevel">
+    insert into registlevel (ID, RegistCode, RegistName, 
+      SequenceNo, RegistFee, RegistQuota, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{registCode,jdbcType=VARCHAR}, #{registName,jdbcType=VARCHAR}, 
+      #{sequenceNo,jdbcType=INTEGER}, #{registFee,jdbcType=DECIMAL}, #{registQuota,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.RegistLevel">
+    insert into registlevel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="registCode != null">
+        RegistCode,
+      </if>
+      <if test="registName != null">
+        RegistName,
+      </if>
+      <if test="sequenceNo != null">
+        SequenceNo,
+      </if>
+      <if test="registFee != null">
+        RegistFee,
+      </if>
+      <if test="registQuota != null">
+        RegistQuota,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="registCode != null">
+        #{registCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registName != null">
+        #{registName,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null">
+        #{sequenceNo,jdbcType=INTEGER},
+      </if>
+      <if test="registFee != null">
+        #{registFee,jdbcType=DECIMAL},
+      </if>
+      <if test="registQuota != null">
+        #{registQuota,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.RegistLevel">
+    update registlevel
+    <set>
+      <if test="registCode != null">
+        RegistCode = #{registCode,jdbcType=VARCHAR},
+      </if>
+      <if test="registName != null">
+        RegistName = #{registName,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNo != null">
+        SequenceNo = #{sequenceNo,jdbcType=INTEGER},
+      </if>
+      <if test="registFee != null">
+        RegistFee = #{registFee,jdbcType=DECIMAL},
+      </if>
+      <if test="registQuota != null">
+        RegistQuota = #{registQuota,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.RegistLevel">
+    update registlevel
+    set RegistCode = #{registCode,jdbcType=VARCHAR},
+      RegistName = #{registName,jdbcType=VARCHAR},
+      SequenceNo = #{sequenceNo,jdbcType=INTEGER},
+      RegistFee = #{registFee,jdbcType=DECIMAL},
+      RegistQuota = #{registQuota,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

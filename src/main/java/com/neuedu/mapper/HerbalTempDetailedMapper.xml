@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.HerbalTempDetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.HerbalTempDetailed" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="HerbalTempID" property="herbalTempID" jdbcType="INTEGER" />
+    <result column="HerbalID" property="herbalID" jdbcType="INTEGER" />
+    <result column="Dosage" property="dosage" jdbcType="VARCHAR" />
+    <result column="Unit" property="unit" jdbcType="VARCHAR" />
+    <result column="Footnote" property="footnote" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, HerbalTempID, HerbalID, Dosage, Unit, Footnote
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from herbaltempdetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
+    delete from herbaltempdetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.HerbalTempDetailed" >
+    insert into herbaltempdetailed (ID, HerbalTempID, HerbalID, 
+      Dosage, Unit, Footnote
+      )
+    values (#{ID,jdbcType=INTEGER}, #{herbalTempID,jdbcType=INTEGER}, #{herbalID,jdbcType=INTEGER}, 
+      #{dosage,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{footnote,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.HerbalTempDetailed" >
+    insert into herbaltempdetailed
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        ID,
+      </if>
+      <if test="herbalTempID != null" >
+        HerbalTempID,
+      </if>
+      <if test="herbalID != null" >
+        HerbalID,
+      </if>
+      <if test="dosage != null" >
+        Dosage,
+      </if>
+      <if test="unit != null" >
+        Unit,
+      </if>
+      <if test="footnote != null" >
+        Footnote,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="herbalTempID != null" >
+        #{herbalTempID,jdbcType=INTEGER},
+      </if>
+      <if test="herbalID != null" >
+        #{herbalID,jdbcType=INTEGER},
+      </if>
+      <if test="dosage != null" >
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="footnote != null" >
+        #{footnote,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.HerbalTempDetailed" >
+    update herbaltempdetailed
+    <set >
+      <if test="herbalTempID != null" >
+        HerbalTempID = #{herbalTempID,jdbcType=INTEGER},
+      </if>
+      <if test="herbalID != null" >
+        HerbalID = #{herbalID,jdbcType=INTEGER},
+      </if>
+      <if test="dosage != null" >
+        Dosage = #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        Unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="footnote != null" >
+        Footnote = #{footnote,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.HerbalTempDetailed" >
+    update herbaltempdetailed
+    set HerbalTempID = #{herbalTempID,jdbcType=INTEGER},
+      HerbalID = #{herbalID,jdbcType=INTEGER},
+      Dosage = #{dosage,jdbcType=VARCHAR},
+      Unit = #{unit,jdbcType=VARCHAR},
+      Footnote = #{footnote,jdbcType=VARCHAR}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

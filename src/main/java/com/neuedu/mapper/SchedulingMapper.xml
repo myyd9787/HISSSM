@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.SchedulingMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Scheduling">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="SchedDate" jdbcType="DATE" property="schedDate" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptID" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="Noon" jdbcType="CHAR" property="noon" />
+    <result column="RuleID" jdbcType="INTEGER" property="ruleID" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, SchedDate, DeptID, UserID, Noon, RuleID, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scheduling
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from scheduling
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.Scheduling">
+    insert into scheduling (ID, SchedDate, DeptID, 
+      UserID, Noon, RuleID, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{schedDate,jdbcType=DATE}, #{deptID,jdbcType=INTEGER}, 
+      #{userID,jdbcType=INTEGER}, #{noon,jdbcType=CHAR}, #{ruleID,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.Scheduling">
+    insert into scheduling
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="schedDate != null">
+        SchedDate,
+      </if>
+      <if test="deptID != null">
+        DeptID,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="noon != null">
+        Noon,
+      </if>
+      <if test="ruleID != null">
+        RuleID,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="schedDate != null">
+        #{schedDate,jdbcType=DATE},
+      </if>
+      <if test="deptID != null">
+        #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="noon != null">
+        #{noon,jdbcType=CHAR},
+      </if>
+      <if test="ruleID != null">
+        #{ruleID,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Scheduling">
+    update scheduling
+    <set>
+      <if test="schedDate != null">
+        SchedDate = #{schedDate,jdbcType=DATE},
+      </if>
+      <if test="deptID != null">
+        DeptID = #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="noon != null">
+        Noon = #{noon,jdbcType=CHAR},
+      </if>
+      <if test="ruleID != null">
+        RuleID = #{ruleID,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Scheduling">
+    update scheduling
+    set SchedDate = #{schedDate,jdbcType=DATE},
+      DeptID = #{deptID,jdbcType=INTEGER},
+      UserID = #{userID,jdbcType=INTEGER},
+      Noon = #{noon,jdbcType=CHAR},
+      RuleID = #{ruleID,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Scheduling">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="SchedDate" jdbcType="DATE" property="schedDate" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptID" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="Noon" jdbcType="CHAR" property="noon" />
+    <result column="RuleID" jdbcType="INTEGER" property="ruleID" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, SchedDate, DeptID, UserID, Noon, RuleID, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scheduling
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from scheduling
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.Scheduling">
+    insert into scheduling (ID, SchedDate, DeptID, 
+      UserID, Noon, RuleID, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{schedDate,jdbcType=DATE}, #{deptID,jdbcType=INTEGER}, 
+      #{userID,jdbcType=INTEGER}, #{noon,jdbcType=CHAR}, #{ruleID,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.Scheduling">
+    insert into scheduling
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="schedDate != null">
+        SchedDate,
+      </if>
+      <if test="deptID != null">
+        DeptID,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="noon != null">
+        Noon,
+      </if>
+      <if test="ruleID != null">
+        RuleID,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="schedDate != null">
+        #{schedDate,jdbcType=DATE},
+      </if>
+      <if test="deptID != null">
+        #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="noon != null">
+        #{noon,jdbcType=CHAR},
+      </if>
+      <if test="ruleID != null">
+        #{ruleID,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Scheduling">
+    update scheduling
+    <set>
+      <if test="schedDate != null">
+        SchedDate = #{schedDate,jdbcType=DATE},
+      </if>
+      <if test="deptID != null">
+        DeptID = #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="noon != null">
+        Noon = #{noon,jdbcType=CHAR},
+      </if>
+      <if test="ruleID != null">
+        RuleID = #{ruleID,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Scheduling">
+    update scheduling
+    set SchedDate = #{schedDate,jdbcType=DATE},
+      DeptID = #{deptID,jdbcType=INTEGER},
+      UserID = #{userID,jdbcType=INTEGER},
+      Noon = #{noon,jdbcType=CHAR},
+      RuleID = #{ruleID,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

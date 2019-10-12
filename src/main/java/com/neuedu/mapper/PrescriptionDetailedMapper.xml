@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.PrescriptionDetailedMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.PrescriptionDetailed">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PrescriptionID" jdbcType="INTEGER" property="prescriptionID" />
+    <result column="DrugsID" jdbcType="INTEGER" property="drugsID" />
+    <result column="DrugsUsage" jdbcType="VARCHAR" property="drugsUsage" />
+    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
+    <result column="Frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PrescriptionID, DrugsID, DrugsUsage, Dosage, Frequency, Amount, State
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prescriptiondetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from prescriptiondetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    insert into prescriptiondetailed (ID, PrescriptionID, DrugsID, 
+      DrugsUsage, Dosage, Frequency, 
+      Amount, State)
+    values (#{ID,jdbcType=INTEGER}, #{prescriptionID,jdbcType=INTEGER}, #{drugsID,jdbcType=INTEGER}, 
+      #{drugsUsage,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    insert into prescriptiondetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="prescriptionID != null">
+        PrescriptionID,
+      </if>
+      <if test="drugsID != null">
+        DrugsID,
+      </if>
+      <if test="drugsUsage != null">
+        DrugsUsage,
+      </if>
+      <if test="dosage != null">
+        Dosage,
+      </if>
+      <if test="frequency != null">
+        Frequency,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="prescriptionID != null">
+        #{prescriptionID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsID != null">
+        #{drugsID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsUsage != null">
+        #{drugsUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null">
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    update prescriptiondetailed
+    <set>
+      <if test="prescriptionID != null">
+        PrescriptionID = #{prescriptionID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsID != null">
+        DrugsID = #{drugsID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsUsage != null">
+        DrugsUsage = #{drugsUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null">
+        Dosage = #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        Frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    update prescriptiondetailed
+    set PrescriptionID = #{prescriptionID,jdbcType=INTEGER},
+      DrugsID = #{drugsID,jdbcType=INTEGER},
+      DrugsUsage = #{drugsUsage,jdbcType=VARCHAR},
+      Dosage = #{dosage,jdbcType=VARCHAR},
+      Frequency = #{frequency,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.PrescriptionDetailed">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="PrescriptionID" jdbcType="INTEGER" property="prescriptionID" />
+    <result column="DrugsID" jdbcType="INTEGER" property="drugsID" />
+    <result column="DrugsUsage" jdbcType="VARCHAR" property="drugsUsage" />
+    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
+    <result column="Frequency" jdbcType="VARCHAR" property="frequency" />
+    <result column="Amount" jdbcType="DECIMAL" property="amount" />
+    <result column="State" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, PrescriptionID, DrugsID, DrugsUsage, Dosage, Frequency, Amount, State
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from prescriptiondetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from prescriptiondetailed
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    insert into prescriptiondetailed (ID, PrescriptionID, DrugsID, 
+      DrugsUsage, Dosage, Frequency, 
+      Amount, State)
+    values (#{ID,jdbcType=INTEGER}, #{prescriptionID,jdbcType=INTEGER}, #{drugsID,jdbcType=INTEGER}, 
+      #{drugsUsage,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    insert into prescriptiondetailed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="prescriptionID != null">
+        PrescriptionID,
+      </if>
+      <if test="drugsID != null">
+        DrugsID,
+      </if>
+      <if test="drugsUsage != null">
+        DrugsUsage,
+      </if>
+      <if test="dosage != null">
+        Dosage,
+      </if>
+      <if test="frequency != null">
+        Frequency,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="state != null">
+        State,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="prescriptionID != null">
+        #{prescriptionID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsID != null">
+        #{drugsID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsUsage != null">
+        #{drugsUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null">
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    update prescriptiondetailed
+    <set>
+      <if test="prescriptionID != null">
+        PrescriptionID = #{prescriptionID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsID != null">
+        DrugsID = #{drugsID,jdbcType=INTEGER},
+      </if>
+      <if test="drugsUsage != null">
+        DrugsUsage = #{drugsUsage,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null">
+        Dosage = #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="frequency != null">
+        Frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="state != null">
+        State = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.PrescriptionDetailed">
+    update prescriptiondetailed
+    set PrescriptionID = #{prescriptionID,jdbcType=INTEGER},
+      DrugsID = #{drugsID,jdbcType=INTEGER},
+      DrugsUsage = #{drugsUsage,jdbcType=VARCHAR},
+      Dosage = #{dosage,jdbcType=VARCHAR},
+      Frequency = #{frequency,jdbcType=VARCHAR},
+      Amount = #{amount,jdbcType=DECIMAL},
+      State = #{state,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

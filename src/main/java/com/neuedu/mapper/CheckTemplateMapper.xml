@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.CheckTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.CheckTemplate">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="Scope" jdbcType="CHAR" property="scope" />
+    <result column="RecordType" jdbcType="INTEGER" property="recordType" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Name, UserID, CreationTime, Scope, RecordType, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from checktemplate
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from checktemplate
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.CheckTemplate">
+    insert into checktemplate (ID, Name, UserID, 
+      CreationTime, Scope, RecordType, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userID,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=CHAR}, #{recordType,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.CheckTemplate">
+    insert into checktemplate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="creationTime != null">
+        CreationTime,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="recordType != null">
+        RecordType,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=CHAR},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.CheckTemplate">
+    update checktemplate
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CreationTime = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=CHAR},
+      </if>
+      <if test="recordType != null">
+        RecordType = #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.CheckTemplate">
+    update checktemplate
+    set Name = #{name,jdbcType=VARCHAR},
+      UserID = #{userID,jdbcType=INTEGER},
+      CreationTime = #{creationTime,jdbcType=TIMESTAMP},
+      Scope = #{scope,jdbcType=CHAR},
+      RecordType = #{recordType,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.CheckTemplate">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationTime" />
+    <result column="Scope" jdbcType="CHAR" property="scope" />
+    <result column="RecordType" jdbcType="INTEGER" property="recordType" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Name, UserID, CreationTime, Scope, RecordType, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from checktemplate
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from checktemplate
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.CheckTemplate">
+    insert into checktemplate (ID, Name, UserID, 
+      CreationTime, Scope, RecordType, 
+      DelMark)
+    values (#{ID,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userID,jdbcType=INTEGER}, 
+      #{creationTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=CHAR}, #{recordType,jdbcType=INTEGER}, 
+      #{delMark,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.CheckTemplate">
+    insert into checktemplate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="creationTime != null">
+        CreationTime,
+      </if>
+      <if test="scope != null">
+        Scope,
+      </if>
+      <if test="recordType != null">
+        RecordType,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=CHAR},
+      </if>
+      <if test="recordType != null">
+        #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.CheckTemplate">
+    update checktemplate
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="creationTime != null">
+        CreationTime = #{creationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scope != null">
+        Scope = #{scope,jdbcType=CHAR},
+      </if>
+      <if test="recordType != null">
+        RecordType = #{recordType,jdbcType=INTEGER},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.CheckTemplate">
+    update checktemplate
+    set Name = #{name,jdbcType=VARCHAR},
+      UserID = #{userID,jdbcType=INTEGER},
+      CreationTime = #{creationTime,jdbcType=TIMESTAMP},
+      Scope = #{scope,jdbcType=CHAR},
+      RecordType = #{recordType,jdbcType=INTEGER},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>

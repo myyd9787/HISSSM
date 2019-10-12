@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.RuleMapper">
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Rule">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="RuleName" jdbcType="VARCHAR" property="ruleName" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptID" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="Week" jdbcType="VARCHAR" property="week" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RuleName, DeptID, UserID, Week, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rule
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from rule
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.Rule">
+    insert into rule (ID, RuleName, DeptID, 
+      UserID, Week, DelMark
+      )
+    values (#{ID,jdbcType=INTEGER}, #{ruleName,jdbcType=VARCHAR}, #{deptID,jdbcType=INTEGER}, 
+      #{userID,jdbcType=INTEGER}, #{week,jdbcType=VARCHAR}, #{delMark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.Rule">
+    insert into rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ruleName != null">
+        RuleName,
+      </if>
+      <if test="deptID != null">
+        DeptID,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="week != null">
+        Week,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="ruleName != null">
+        #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptID != null">
+        #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Rule">
+    update rule
+    <set>
+      <if test="ruleName != null">
+        RuleName = #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptID != null">
+        DeptID = #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="week != null">
+        Week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Rule">
+    update rule
+    set RuleName = #{ruleName,jdbcType=VARCHAR},
+      DeptID = #{deptID,jdbcType=INTEGER},
+      UserID = #{userID,jdbcType=INTEGER},
+      Week = #{week,jdbcType=VARCHAR},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Rule">
+    <id column="ID" jdbcType="INTEGER" property="ID" />
+    <result column="RuleName" jdbcType="VARCHAR" property="ruleName" />
+    <result column="DeptID" jdbcType="INTEGER" property="deptID" />
+    <result column="UserID" jdbcType="INTEGER" property="userID" />
+    <result column="Week" jdbcType="VARCHAR" property="week" />
+    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RuleName, DeptID, UserID, Week, DelMark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rule
+    where ID = #{ID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from rule
+    where ID = #{ID,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.neuedu.pojo.Rule">
+    insert into rule (ID, RuleName, DeptID, 
+      UserID, Week, DelMark
+      )
+    values (#{ID,jdbcType=INTEGER}, #{ruleName,jdbcType=VARCHAR}, #{deptID,jdbcType=INTEGER}, 
+      #{userID,jdbcType=INTEGER}, #{week,jdbcType=VARCHAR}, #{delMark,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.Rule">
+    insert into rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        ID,
+      </if>
+      <if test="ruleName != null">
+        RuleName,
+      </if>
+      <if test="deptID != null">
+        DeptID,
+      </if>
+      <if test="userID != null">
+        UserID,
+      </if>
+      <if test="week != null">
+        Week,
+      </if>
+      <if test="delMark != null">
+        DelMark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ID != null">
+        #{ID,jdbcType=INTEGER},
+      </if>
+      <if test="ruleName != null">
+        #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptID != null">
+        #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="week != null">
+        #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="delMark != null">
+        #{delMark,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Rule">
+    update rule
+    <set>
+      <if test="ruleName != null">
+        RuleName = #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="deptID != null">
+        DeptID = #{deptID,jdbcType=INTEGER},
+      </if>
+      <if test="userID != null">
+        UserID = #{userID,jdbcType=INTEGER},
+      </if>
+      <if test="week != null">
+        Week = #{week,jdbcType=VARCHAR},
+      </if>
+      <if test="delMark != null">
+        DelMark = #{delMark,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Rule">
+    update rule
+    set RuleName = #{ruleName,jdbcType=VARCHAR},
+      DeptID = #{deptID,jdbcType=INTEGER},
+      UserID = #{userID,jdbcType=INTEGER},
+      Week = #{week,jdbcType=VARCHAR},
+      DelMark = #{delMark,jdbcType=INTEGER}
+    where ID = #{ID,jdbcType=INTEGER}
+  </update>
+</mapper>
