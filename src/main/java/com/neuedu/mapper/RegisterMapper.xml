@@ -261,6 +261,6 @@
     select
     <include refid="Base_Column_List"/>
     from register
-    where VisitState = #{state, jdbcType = Integer}
+    where VisitState = #{state, jdbcType = INTEGER}
   </select>
 </mapper>
