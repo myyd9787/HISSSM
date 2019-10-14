@@ -150,4 +150,20 @@
       DelMark = #{delMark,jdbcType=INTEGER}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
+  <select id="login" parameterType="User" resultMap="loginResultMap">
+    select * from user
+    where username=#{userName} and password=#{password}
+  </select>
+  <resultMap id="loginResultMap" type="User">
+    <id property="ID" column="ID"></id>
+    <result property="userName" column="userName"></result>
+    <result property="password" column="password"></result>
+    <result property="realName" column="realName"></result>
+    <result property="useType" column="useType"></result>
+    <result property="docTitleID" column="docTitleID"></result>
+    <result property="isScheduling" column="isScheduling"></result>
+    <result property="deptID" column="deptID"></result>
+    <result property="registLeID" column="registLeID"></result>
+    <result property="delMark" column="delMark"></result>
+  </resultMap>
 </mapper>
