@@ -1,156 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neuedu.mapper.ExpenseClassMapper">
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.ExpenseClass">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="ExpCode" jdbcType="VARCHAR" property="expCode" />
-    <result column="ExpName" jdbcType="VARCHAR" property="expName" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.ExpenseClassMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.ExpenseClass" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="ExpCode" property="expCode" jdbcType="VARCHAR" />
+    <result column="ExpName" property="expName" jdbcType="VARCHAR" />
+    <result column="DelMark" property="delMark" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     ID, ExpCode, ExpName, DelMark
   </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from expenseclass
     where ID = #{ID,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
     delete from expenseclass
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.ExpenseClass">
+  <insert id="insert" parameterType="com.neuedu.pojo.ExpenseClass" >
     insert into expenseclass (ID, ExpCode, ExpName, 
       DelMark)
     values (#{ID,jdbcType=INTEGER}, #{expCode,jdbcType=VARCHAR}, #{expName,jdbcType=VARCHAR}, 
       #{delMark,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.ExpenseClass">
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.ExpenseClass" >
     insert into expenseclass
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         ID,
       </if>
-      <if test="expCode != null">
+      <if test="expCode != null" >
         ExpCode,
       </if>
-      <if test="expName != null">
+      <if test="expName != null" >
         ExpName,
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         #{ID,jdbcType=INTEGER},
       </if>
-      <if test="expCode != null">
+      <if test="expCode != null" >
         #{expCode,jdbcType=VARCHAR},
       </if>
-      <if test="expName != null">
+      <if test="expName != null" >
         #{expName,jdbcType=VARCHAR},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         #{delMark,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.ExpenseClass">
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.ExpenseClass" >
     update expenseclass
-    <set>
-      <if test="expCode != null">
+    <set >
+      <if test="expCode != null" >
         ExpCode = #{expCode,jdbcType=VARCHAR},
       </if>
-      <if test="expName != null">
+      <if test="expName != null" >
         ExpName = #{expName,jdbcType=VARCHAR},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark = #{delMark,jdbcType=INTEGER},
       </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.ExpenseClass">
-    update expenseclass
-    set ExpCode = #{expCode,jdbcType=VARCHAR},
-      ExpName = #{expName,jdbcType=VARCHAR},
-      DelMark = #{delMark,jdbcType=INTEGER}
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.ExpenseClass">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="ExpCode" jdbcType="VARCHAR" property="expCode" />
-    <result column="ExpName" jdbcType="VARCHAR" property="expName" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, ExpCode, ExpName, DelMark
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from expenseclass
-    where ID = #{ID,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
-    delete from expenseclass
-    where ID = #{ID,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.ExpenseClass">
-    insert into expenseclass (ID, ExpCode, ExpName, 
-      DelMark)
-    values (#{ID,jdbcType=INTEGER}, #{expCode,jdbcType=VARCHAR}, #{expName,jdbcType=VARCHAR}, 
-      #{delMark,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.ExpenseClass">
-    insert into expenseclass
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
-      <if test="expCode != null">
-        ExpCode,
-      </if>
-      <if test="expName != null">
-        ExpName,
-      </if>
-      <if test="delMark != null">
-        DelMark,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=INTEGER},
-      </if>
-      <if test="expCode != null">
-        #{expCode,jdbcType=VARCHAR},
-      </if>
-      <if test="expName != null">
-        #{expName,jdbcType=VARCHAR},
-      </if>
-      <if test="delMark != null">
-        #{delMark,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.ExpenseClass">
-    update expenseclass
-    <set>
-      <if test="expCode != null">
-        ExpCode = #{expCode,jdbcType=VARCHAR},
-      </if>
-      <if test="expName != null">
-        ExpName = #{expName,jdbcType=VARCHAR},
-      </if>
-      <if test="delMark != null">
-        DelMark = #{delMark,jdbcType=INTEGER},
-      </if>
-    </set>
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.ExpenseClass">
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.ExpenseClass" >
     update expenseclass
     set ExpCode = #{expCode,jdbcType=VARCHAR},
       ExpName = #{expName,jdbcType=VARCHAR},

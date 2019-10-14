@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neuedu.mapper.DrugsTemplateMapper">
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.DrugsTemplate">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="Name" jdbcType="VARCHAR" property="name" />
-    <result column="UserID" jdbcType="INTEGER" property="userID" />
-    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationTime" />
-    <result column="Scope" jdbcType="CHAR" property="scope" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.DrugsTemplateMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.DrugsTemplate" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="UserID" property="userID" jdbcType="INTEGER" />
+    <result column="CreationTime" property="creationTime" jdbcType="TIMESTAMP" />
+    <result column="Scope" property="scope" jdbcType="CHAR" />
+    <result column="DelMark" property="delMark" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     ID, Name, UserID, CreationTime, Scope, DelMark
   </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from drugstemplate
     where ID = #{ID,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
     delete from drugstemplate
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.DrugsTemplate">
+  <insert id="insert" parameterType="com.neuedu.pojo.DrugsTemplate" >
     insert into drugstemplate (ID, Name, UserID, 
       CreationTime, Scope, DelMark
       )
@@ -30,173 +30,71 @@
       #{creationTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=CHAR}, #{delMark,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.DrugsTemplate">
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.DrugsTemplate" >
     insert into drugstemplate
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         ID,
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         Name,
       </if>
-      <if test="userID != null">
+      <if test="userID != null" >
         UserID,
       </if>
-      <if test="creationTime != null">
+      <if test="creationTime != null" >
         CreationTime,
       </if>
-      <if test="scope != null">
+      <if test="scope != null" >
         Scope,
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         #{ID,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="userID != null">
+      <if test="userID != null" >
         #{userID,jdbcType=INTEGER},
       </if>
-      <if test="creationTime != null">
+      <if test="creationTime != null" >
         #{creationTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="scope != null">
+      <if test="scope != null" >
         #{scope,jdbcType=CHAR},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         #{delMark,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.DrugsTemplate">
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.DrugsTemplate" >
     update drugstemplate
-    <set>
-      <if test="name != null">
+    <set >
+      <if test="name != null" >
         Name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="userID != null">
+      <if test="userID != null" >
         UserID = #{userID,jdbcType=INTEGER},
       </if>
-      <if test="creationTime != null">
+      <if test="creationTime != null" >
         CreationTime = #{creationTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="scope != null">
+      <if test="scope != null" >
         Scope = #{scope,jdbcType=CHAR},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark = #{delMark,jdbcType=INTEGER},
       </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.DrugsTemplate">
-    update drugstemplate
-    set Name = #{name,jdbcType=VARCHAR},
-      UserID = #{userID,jdbcType=INTEGER},
-      CreationTime = #{creationTime,jdbcType=TIMESTAMP},
-      Scope = #{scope,jdbcType=CHAR},
-      DelMark = #{delMark,jdbcType=INTEGER}
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.DrugsTemplate">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="Name" jdbcType="VARCHAR" property="name" />
-    <result column="UserID" jdbcType="INTEGER" property="userID" />
-    <result column="CreationTime" jdbcType="TIMESTAMP" property="creationTime" />
-    <result column="Scope" jdbcType="CHAR" property="scope" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, Name, UserID, CreationTime, Scope, DelMark
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from drugstemplate
-    where ID = #{ID,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
-    delete from drugstemplate
-    where ID = #{ID,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.DrugsTemplate">
-    insert into drugstemplate (ID, Name, UserID, 
-      CreationTime, Scope, DelMark
-      )
-    values (#{ID,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userID,jdbcType=INTEGER}, 
-      #{creationTime,jdbcType=TIMESTAMP}, #{scope,jdbcType=CHAR}, #{delMark,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.DrugsTemplate">
-    insert into drugstemplate
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
-      <if test="name != null">
-        Name,
-      </if>
-      <if test="userID != null">
-        UserID,
-      </if>
-      <if test="creationTime != null">
-        CreationTime,
-      </if>
-      <if test="scope != null">
-        Scope,
-      </if>
-      <if test="delMark != null">
-        DelMark,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="userID != null">
-        #{userID,jdbcType=INTEGER},
-      </if>
-      <if test="creationTime != null">
-        #{creationTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="scope != null">
-        #{scope,jdbcType=CHAR},
-      </if>
-      <if test="delMark != null">
-        #{delMark,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.DrugsTemplate">
-    update drugstemplate
-    <set>
-      <if test="name != null">
-        Name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="userID != null">
-        UserID = #{userID,jdbcType=INTEGER},
-      </if>
-      <if test="creationTime != null">
-        CreationTime = #{creationTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="scope != null">
-        Scope = #{scope,jdbcType=CHAR},
-      </if>
-      <if test="delMark != null">
-        DelMark = #{delMark,jdbcType=INTEGER},
-      </if>
-    </set>
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.DrugsTemplate">
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.DrugsTemplate" >
     update drugstemplate
     set Name = #{name,jdbcType=VARCHAR},
       UserID = #{userID,jdbcType=INTEGER},

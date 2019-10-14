@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neuedu.mapper.DrugsMapper">
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Drugs">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="DrugsCode" jdbcType="CHAR" property="drugsCode" />
-    <result column="DrugsName" jdbcType="VARCHAR" property="drugsName" />
-    <result column="DrugsFormat" jdbcType="VARCHAR" property="drugsFormat" />
-    <result column="DrugsUnit" jdbcType="VARCHAR" property="drugsUnit" />
-    <result column="Manufacturer" jdbcType="VARCHAR" property="manufacturer" />
-    <result column="DrugsDosageID" jdbcType="INTEGER" property="drugsDosageID" />
-    <result column="DrugsTypeID" jdbcType="INTEGER" property="drugsTypeID" />
-    <result column="DrugsPrice" jdbcType="DECIMAL" property="drugsPrice" />
-    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemonicCode" />
-    <result column="CreationDate" jdbcType="TIMESTAMP" property="creationDate" />
-    <result column="LastUpdateDate" jdbcType="TIMESTAMP" property="lastUpdateDate" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.DrugsMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Drugs" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="DrugsCode" property="drugsCode" jdbcType="CHAR" />
+    <result column="DrugsName" property="drugsName" jdbcType="VARCHAR" />
+    <result column="DrugsFormat" property="drugsFormat" jdbcType="VARCHAR" />
+    <result column="DrugsUnit" property="drugsUnit" jdbcType="VARCHAR" />
+    <result column="Manufacturer" property="manufacturer" jdbcType="VARCHAR" />
+    <result column="DrugsDosageID" property="drugsDosageID" jdbcType="INTEGER" />
+    <result column="DrugsTypeID" property="drugsTypeID" jdbcType="INTEGER" />
+    <result column="DrugsPrice" property="drugsPrice" jdbcType="DECIMAL" />
+    <result column="MnemonicCode" property="mnemonicCode" jdbcType="VARCHAR" />
+    <result column="CreationDate" property="creationDate" jdbcType="TIMESTAMP" />
+    <result column="LastUpdateDate" property="lastUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="DelMark" property="delMark" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     ID, DrugsCode, DrugsName, DrugsFormat, DrugsUnit, Manufacturer, DrugsDosageID, DrugsTypeID, 
     DrugsPrice, MnemonicCode, CreationDate, LastUpdateDate, DelMark
   </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from drugs
     where ID = #{ID,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
     delete from drugs
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.Drugs">
+  <insert id="insert" parameterType="com.neuedu.pojo.Drugs" >
     insert into drugs (ID, DrugsCode, DrugsName, 
       DrugsFormat, DrugsUnit, Manufacturer, 
       DrugsDosageID, DrugsTypeID, DrugsPrice, 
@@ -42,318 +42,134 @@
       #{mnemonicCode,jdbcType=VARCHAR}, #{creationDate,jdbcType=TIMESTAMP}, #{lastUpdateDate,jdbcType=TIMESTAMP}, 
       #{delMark,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.Drugs">
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.Drugs" >
     insert into drugs
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         ID,
       </if>
-      <if test="drugsCode != null">
+      <if test="drugsCode != null" >
         DrugsCode,
       </if>
-      <if test="drugsName != null">
+      <if test="drugsName != null" >
         DrugsName,
       </if>
-      <if test="drugsFormat != null">
+      <if test="drugsFormat != null" >
         DrugsFormat,
       </if>
-      <if test="drugsUnit != null">
+      <if test="drugsUnit != null" >
         DrugsUnit,
       </if>
-      <if test="manufacturer != null">
+      <if test="manufacturer != null" >
         Manufacturer,
       </if>
-      <if test="drugsDosageID != null">
+      <if test="drugsDosageID != null" >
         DrugsDosageID,
       </if>
-      <if test="drugsTypeID != null">
+      <if test="drugsTypeID != null" >
         DrugsTypeID,
       </if>
-      <if test="drugsPrice != null">
+      <if test="drugsPrice != null" >
         DrugsPrice,
       </if>
-      <if test="mnemonicCode != null">
+      <if test="mnemonicCode != null" >
         MnemonicCode,
       </if>
-      <if test="creationDate != null">
+      <if test="creationDate != null" >
         CreationDate,
       </if>
-      <if test="lastUpdateDate != null">
+      <if test="lastUpdateDate != null" >
         LastUpdateDate,
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         #{ID,jdbcType=INTEGER},
       </if>
-      <if test="drugsCode != null">
+      <if test="drugsCode != null" >
         #{drugsCode,jdbcType=CHAR},
       </if>
-      <if test="drugsName != null">
+      <if test="drugsName != null" >
         #{drugsName,jdbcType=VARCHAR},
       </if>
-      <if test="drugsFormat != null">
+      <if test="drugsFormat != null" >
         #{drugsFormat,jdbcType=VARCHAR},
       </if>
-      <if test="drugsUnit != null">
+      <if test="drugsUnit != null" >
         #{drugsUnit,jdbcType=VARCHAR},
       </if>
-      <if test="manufacturer != null">
+      <if test="manufacturer != null" >
         #{manufacturer,jdbcType=VARCHAR},
       </if>
-      <if test="drugsDosageID != null">
+      <if test="drugsDosageID != null" >
         #{drugsDosageID,jdbcType=INTEGER},
       </if>
-      <if test="drugsTypeID != null">
+      <if test="drugsTypeID != null" >
         #{drugsTypeID,jdbcType=INTEGER},
       </if>
-      <if test="drugsPrice != null">
+      <if test="drugsPrice != null" >
         #{drugsPrice,jdbcType=DECIMAL},
       </if>
-      <if test="mnemonicCode != null">
+      <if test="mnemonicCode != null" >
         #{mnemonicCode,jdbcType=VARCHAR},
       </if>
-      <if test="creationDate != null">
+      <if test="creationDate != null" >
         #{creationDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastUpdateDate != null">
+      <if test="lastUpdateDate != null" >
         #{lastUpdateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         #{delMark,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Drugs">
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Drugs" >
     update drugs
-    <set>
-      <if test="drugsCode != null">
+    <set >
+      <if test="drugsCode != null" >
         DrugsCode = #{drugsCode,jdbcType=CHAR},
       </if>
-      <if test="drugsName != null">
+      <if test="drugsName != null" >
         DrugsName = #{drugsName,jdbcType=VARCHAR},
       </if>
-      <if test="drugsFormat != null">
+      <if test="drugsFormat != null" >
         DrugsFormat = #{drugsFormat,jdbcType=VARCHAR},
       </if>
-      <if test="drugsUnit != null">
+      <if test="drugsUnit != null" >
         DrugsUnit = #{drugsUnit,jdbcType=VARCHAR},
       </if>
-      <if test="manufacturer != null">
+      <if test="manufacturer != null" >
         Manufacturer = #{manufacturer,jdbcType=VARCHAR},
       </if>
-      <if test="drugsDosageID != null">
+      <if test="drugsDosageID != null" >
         DrugsDosageID = #{drugsDosageID,jdbcType=INTEGER},
       </if>
-      <if test="drugsTypeID != null">
+      <if test="drugsTypeID != null" >
         DrugsTypeID = #{drugsTypeID,jdbcType=INTEGER},
       </if>
-      <if test="drugsPrice != null">
+      <if test="drugsPrice != null" >
         DrugsPrice = #{drugsPrice,jdbcType=DECIMAL},
       </if>
-      <if test="mnemonicCode != null">
+      <if test="mnemonicCode != null" >
         MnemonicCode = #{mnemonicCode,jdbcType=VARCHAR},
       </if>
-      <if test="creationDate != null">
+      <if test="creationDate != null" >
         CreationDate = #{creationDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastUpdateDate != null">
+      <if test="lastUpdateDate != null" >
         LastUpdateDate = #{lastUpdateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="delMark != null">
+      <if test="delMark != null" >
         DelMark = #{delMark,jdbcType=INTEGER},
       </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Drugs">
-    update drugs
-    set DrugsCode = #{drugsCode,jdbcType=CHAR},
-      DrugsName = #{drugsName,jdbcType=VARCHAR},
-      DrugsFormat = #{drugsFormat,jdbcType=VARCHAR},
-      DrugsUnit = #{drugsUnit,jdbcType=VARCHAR},
-      Manufacturer = #{manufacturer,jdbcType=VARCHAR},
-      DrugsDosageID = #{drugsDosageID,jdbcType=INTEGER},
-      DrugsTypeID = #{drugsTypeID,jdbcType=INTEGER},
-      DrugsPrice = #{drugsPrice,jdbcType=DECIMAL},
-      MnemonicCode = #{mnemonicCode,jdbcType=VARCHAR},
-      CreationDate = #{creationDate,jdbcType=TIMESTAMP},
-      LastUpdateDate = #{lastUpdateDate,jdbcType=TIMESTAMP},
-      DelMark = #{delMark,jdbcType=INTEGER}
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Drugs">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="DrugsCode" jdbcType="CHAR" property="drugsCode" />
-    <result column="DrugsName" jdbcType="VARCHAR" property="drugsName" />
-    <result column="DrugsFormat" jdbcType="VARCHAR" property="drugsFormat" />
-    <result column="DrugsUnit" jdbcType="VARCHAR" property="drugsUnit" />
-    <result column="Manufacturer" jdbcType="VARCHAR" property="manufacturer" />
-    <result column="DrugsDosageID" jdbcType="INTEGER" property="drugsDosageID" />
-    <result column="DrugsTypeID" jdbcType="INTEGER" property="drugsTypeID" />
-    <result column="DrugsPrice" jdbcType="DECIMAL" property="drugsPrice" />
-    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemonicCode" />
-    <result column="CreationDate" jdbcType="TIMESTAMP" property="creationDate" />
-    <result column="LastUpdateDate" jdbcType="TIMESTAMP" property="lastUpdateDate" />
-    <result column="DelMark" jdbcType="INTEGER" property="delMark" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, DrugsCode, DrugsName, DrugsFormat, DrugsUnit, Manufacturer, DrugsDosageID, DrugsTypeID, 
-    DrugsPrice, MnemonicCode, CreationDate, LastUpdateDate, DelMark
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from drugs
-    where ID = #{ID,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
-    delete from drugs
-    where ID = #{ID,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.Drugs">
-    insert into drugs (ID, DrugsCode, DrugsName, 
-      DrugsFormat, DrugsUnit, Manufacturer, 
-      DrugsDosageID, DrugsTypeID, DrugsPrice, 
-      MnemonicCode, CreationDate, LastUpdateDate, 
-      DelMark)
-    values (#{ID,jdbcType=INTEGER}, #{drugsCode,jdbcType=CHAR}, #{drugsName,jdbcType=VARCHAR}, 
-      #{drugsFormat,jdbcType=VARCHAR}, #{drugsUnit,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
-      #{drugsDosageID,jdbcType=INTEGER}, #{drugsTypeID,jdbcType=INTEGER}, #{drugsPrice,jdbcType=DECIMAL}, 
-      #{mnemonicCode,jdbcType=VARCHAR}, #{creationDate,jdbcType=TIMESTAMP}, #{lastUpdateDate,jdbcType=TIMESTAMP}, 
-      #{delMark,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.Drugs">
-    insert into drugs
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
-      <if test="drugsCode != null">
-        DrugsCode,
-      </if>
-      <if test="drugsName != null">
-        DrugsName,
-      </if>
-      <if test="drugsFormat != null">
-        DrugsFormat,
-      </if>
-      <if test="drugsUnit != null">
-        DrugsUnit,
-      </if>
-      <if test="manufacturer != null">
-        Manufacturer,
-      </if>
-      <if test="drugsDosageID != null">
-        DrugsDosageID,
-      </if>
-      <if test="drugsTypeID != null">
-        DrugsTypeID,
-      </if>
-      <if test="drugsPrice != null">
-        DrugsPrice,
-      </if>
-      <if test="mnemonicCode != null">
-        MnemonicCode,
-      </if>
-      <if test="creationDate != null">
-        CreationDate,
-      </if>
-      <if test="lastUpdateDate != null">
-        LastUpdateDate,
-      </if>
-      <if test="delMark != null">
-        DelMark,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=INTEGER},
-      </if>
-      <if test="drugsCode != null">
-        #{drugsCode,jdbcType=CHAR},
-      </if>
-      <if test="drugsName != null">
-        #{drugsName,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsFormat != null">
-        #{drugsFormat,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsUnit != null">
-        #{drugsUnit,jdbcType=VARCHAR},
-      </if>
-      <if test="manufacturer != null">
-        #{manufacturer,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsDosageID != null">
-        #{drugsDosageID,jdbcType=INTEGER},
-      </if>
-      <if test="drugsTypeID != null">
-        #{drugsTypeID,jdbcType=INTEGER},
-      </if>
-      <if test="drugsPrice != null">
-        #{drugsPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="mnemonicCode != null">
-        #{mnemonicCode,jdbcType=VARCHAR},
-      </if>
-      <if test="creationDate != null">
-        #{creationDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lastUpdateDate != null">
-        #{lastUpdateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="delMark != null">
-        #{delMark,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.Drugs">
-    update drugs
-    <set>
-      <if test="drugsCode != null">
-        DrugsCode = #{drugsCode,jdbcType=CHAR},
-      </if>
-      <if test="drugsName != null">
-        DrugsName = #{drugsName,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsFormat != null">
-        DrugsFormat = #{drugsFormat,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsUnit != null">
-        DrugsUnit = #{drugsUnit,jdbcType=VARCHAR},
-      </if>
-      <if test="manufacturer != null">
-        Manufacturer = #{manufacturer,jdbcType=VARCHAR},
-      </if>
-      <if test="drugsDosageID != null">
-        DrugsDosageID = #{drugsDosageID,jdbcType=INTEGER},
-      </if>
-      <if test="drugsTypeID != null">
-        DrugsTypeID = #{drugsTypeID,jdbcType=INTEGER},
-      </if>
-      <if test="drugsPrice != null">
-        DrugsPrice = #{drugsPrice,jdbcType=DECIMAL},
-      </if>
-      <if test="mnemonicCode != null">
-        MnemonicCode = #{mnemonicCode,jdbcType=VARCHAR},
-      </if>
-      <if test="creationDate != null">
-        CreationDate = #{creationDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lastUpdateDate != null">
-        LastUpdateDate = #{lastUpdateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="delMark != null">
-        DelMark = #{delMark,jdbcType=INTEGER},
-      </if>
-    </set>
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Drugs">
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Drugs" >
     update drugs
     set DrugsCode = #{drugsCode,jdbcType=CHAR},
       DrugsName = #{drugsName,jdbcType=VARCHAR},
