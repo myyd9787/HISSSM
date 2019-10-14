@@ -48,181 +48,181 @@
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table tableName="constanttype" domainObjectName="ConstantType"
+		<table schema="root" tableName="constanttype" domainObjectName="ConstantType"
 		 enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"    
                enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
                <columnOverride column="id" javaType="Integer" />
          </table>
-		<table tableName="constantitem" domainObjectName="ConstantItem"
+		<table schema="root" tableName="constantitem" domainObjectName="ConstantItem"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="department" domainObjectName="Department"
+		<table schema="root" tableName="department" domainObjectName="Department"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="registlevel" domainObjectName="RegistLevel"
+		<table schema="root" tableName="registlevel" domainObjectName="RegistLevel"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="user" domainObjectName="User"
+		<table schema="root" tableName="user" domainObjectName="User"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="settlecategory" domainObjectName="SettleCategory"
+		<table schema="root" tableName="settlecategory" domainObjectName="SettleCategory"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="disecategory" domainObjectName="DiseCategory"
+		<table schema="root" tableName="disecategory" domainObjectName="DiseCategory"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="disease" domainObjectName="Disease"
+		<table schema="root" tableName="disease" domainObjectName="Disease"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="expenseclass" domainObjectName="ExpenseClass"
+		<table schema="root" tableName="expenseclass" domainObjectName="ExpenseClass"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="fmeditem" domainObjectName="FmedItem"
+		<table schema="root" tableName="fmeditem" domainObjectName="FmedItem"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="drugs" domainObjectName="Drugs"
+		<table schema="root" tableName="drugs" domainObjectName="Drugs"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="rule" domainObjectName="Rule"
+		<table schema="root" tableName="rule" domainObjectName="Rule"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="scheduling" domainObjectName="Scheduling"
+		<table schema="root" tableName="scheduling" domainObjectName="Scheduling"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="register" domainObjectName="Register"
+		<table schema="root" tableName="register" domainObjectName="Register"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
 			<property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="medicalrecord" domainObjectName="MedicalRecord"
+		<table schema="root" tableName="medicalrecord" domainObjectName="MedicalRecord"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="medicaldisease" domainObjectName="MedicalDisease"
+		<table schema="root" tableName="medicaldisease" domainObjectName="MedicalDisease"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="checkapply" domainObjectName="CheckApply"
+		<table schema="root" tableName="checkapply" domainObjectName="CheckApply"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="checktemplate" domainObjectName="CheckTemplate"
+		<table schema="root" tableName="checktemplate" domainObjectName="CheckTemplate"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="checkrelation" domainObjectName="CheckRelation"
+		<table schema="root" tableName="checkrelation" domainObjectName="CheckRelation"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="prescription" domainObjectName="Prescription"
+		<table schema="root" tableName="prescription" domainObjectName="Prescription"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="prescriptiondetailed" domainObjectName="PrescriptionDetailed"
+		<table schema="root" tableName="prescriptiondetailed" domainObjectName="PrescriptionDetailed"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="drugstemplate" domainObjectName="DrugsTemplate"
+		<table schema="root" tableName="drugstemplate" domainObjectName="DrugsTemplate"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="drugsdetailed" domainObjectName="DrugsDetailed"
+		<table schema="root" tableName="drugsdetailed" domainObjectName="DrugsDetailed"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="herbalprescription" domainObjectName="HerbalPrescription"
+		<table schema="root" tableName="herbalprescription" domainObjectName="HerbalPrescription"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="herbaldetailed" domainObjectName="HerbalDetailed"
+		<table schema="root" tableName="herbaldetailed" domainObjectName="HerbalDetailed"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="herbaltemplate" domainObjectName="HerbalTemplate"
+		<table schema="root" tableName="herbaltemplate" domainObjectName="HerbalTemplate"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="herbaltempdetailed" domainObjectName="HerbalTempDetailed"
+		<table schema="root" tableName="herbaltempdetailed" domainObjectName="HerbalTempDetailed"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="patientcosts" domainObjectName="PatientCosts"
+		<table schema="root" tableName="patientcosts" domainObjectName="PatientCosts"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="invoice" domainObjectName="Invoice"
+		<table schema="root" tableName="invoice" domainObjectName="Invoice"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
 			<columnOverride column="id" javaType="Integer" />
 		</table>
-		<table tableName="registwork" domainObjectName="RegistWork"
+		<table schema="root" tableName="registwork" domainObjectName="RegistWork"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
 			   enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>

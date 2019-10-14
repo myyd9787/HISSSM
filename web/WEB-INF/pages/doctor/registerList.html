@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/doctor/registerList.action" method="post">
+    名称<input type="text" name="name"/>日期<input name="createtime" type="text"/>
+    <input type="submit" value="查询"/>
+</form>
+<table border="1">
+    <tr>
+        <th>名称</th>
+        <th>姓名</th>
+        <th>状态</th>
+    </tr>
+    <tr th:each="prod : ${registerList}">
+        <td th:text="${prod.ID}"></td>
+        <td th:text="${prod.RealName}"></td>
+        <td th:text="${prod.VisitState}"></td>
+    </tr>
+</table>
+</body>
+</html>

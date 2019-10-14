@@ -1,28 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neuedu.mapper.HerbalDetailedMapper">
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.HerbalDetailed">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="HerbalPresID" jdbcType="INTEGER" property="herbalPresID" />
-    <result column="HerbalID" jdbcType="INTEGER" property="herbalID" />
-    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
-    <result column="Price" jdbcType="DECIMAL" property="price" />
-    <result column="Footnote" jdbcType="VARCHAR" property="footnote" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.HerbalDetailedMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.HerbalDetailed" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="HerbalPresID" property="herbalPresID" jdbcType="INTEGER" />
+    <result column="HerbalID" property="herbalID" jdbcType="INTEGER" />
+    <result column="Dosage" property="dosage" jdbcType="VARCHAR" />
+    <result column="Price" property="price" jdbcType="DECIMAL" />
+    <result column="Footnote" property="footnote" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     ID, HerbalPresID, HerbalID, Dosage, Price, Footnote
   </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from herbaldetailed
     where ID = #{ID,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
     delete from herbaldetailed
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.HerbalDetailed">
+  <insert id="insert" parameterType="com.neuedu.pojo.HerbalDetailed" >
     insert into herbaldetailed (ID, HerbalPresID, HerbalID, 
       Dosage, Price, Footnote
       )
@@ -30,173 +30,71 @@
       #{dosage,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{footnote,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.HerbalDetailed">
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.HerbalDetailed" >
     insert into herbaldetailed
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         ID,
       </if>
-      <if test="herbalPresID != null">
+      <if test="herbalPresID != null" >
         HerbalPresID,
       </if>
-      <if test="herbalID != null">
+      <if test="herbalID != null" >
         HerbalID,
       </if>
-      <if test="dosage != null">
+      <if test="dosage != null" >
         Dosage,
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         Price,
       </if>
-      <if test="footnote != null">
+      <if test="footnote != null" >
         Footnote,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         #{ID,jdbcType=INTEGER},
       </if>
-      <if test="herbalPresID != null">
+      <if test="herbalPresID != null" >
         #{herbalPresID,jdbcType=INTEGER},
       </if>
-      <if test="herbalID != null">
+      <if test="herbalID != null" >
         #{herbalID,jdbcType=INTEGER},
       </if>
-      <if test="dosage != null">
+      <if test="dosage != null" >
         #{dosage,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="footnote != null">
+      <if test="footnote != null" >
         #{footnote,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.HerbalDetailed">
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.HerbalDetailed" >
     update herbaldetailed
-    <set>
-      <if test="herbalPresID != null">
+    <set >
+      <if test="herbalPresID != null" >
         HerbalPresID = #{herbalPresID,jdbcType=INTEGER},
       </if>
-      <if test="herbalID != null">
+      <if test="herbalID != null" >
         HerbalID = #{herbalID,jdbcType=INTEGER},
       </if>
-      <if test="dosage != null">
+      <if test="dosage != null" >
         Dosage = #{dosage,jdbcType=VARCHAR},
       </if>
-      <if test="price != null">
+      <if test="price != null" >
         Price = #{price,jdbcType=DECIMAL},
       </if>
-      <if test="footnote != null">
+      <if test="footnote != null" >
         Footnote = #{footnote,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.HerbalDetailed">
-    update herbaldetailed
-    set HerbalPresID = #{herbalPresID,jdbcType=INTEGER},
-      HerbalID = #{herbalID,jdbcType=INTEGER},
-      Dosage = #{dosage,jdbcType=VARCHAR},
-      Price = #{price,jdbcType=DECIMAL},
-      Footnote = #{footnote,jdbcType=VARCHAR}
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.HerbalDetailed">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="HerbalPresID" jdbcType="INTEGER" property="herbalPresID" />
-    <result column="HerbalID" jdbcType="INTEGER" property="herbalID" />
-    <result column="Dosage" jdbcType="VARCHAR" property="dosage" />
-    <result column="Price" jdbcType="DECIMAL" property="price" />
-    <result column="Footnote" jdbcType="VARCHAR" property="footnote" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, HerbalPresID, HerbalID, Dosage, Price, Footnote
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from herbaldetailed
-    where ID = #{ID,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
-    delete from herbaldetailed
-    where ID = #{ID,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.HerbalDetailed">
-    insert into herbaldetailed (ID, HerbalPresID, HerbalID, 
-      Dosage, Price, Footnote
-      )
-    values (#{ID,jdbcType=INTEGER}, #{herbalPresID,jdbcType=INTEGER}, #{herbalID,jdbcType=INTEGER}, 
-      #{dosage,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{footnote,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.HerbalDetailed">
-    insert into herbaldetailed
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
-      <if test="herbalPresID != null">
-        HerbalPresID,
-      </if>
-      <if test="herbalID != null">
-        HerbalID,
-      </if>
-      <if test="dosage != null">
-        Dosage,
-      </if>
-      <if test="price != null">
-        Price,
-      </if>
-      <if test="footnote != null">
-        Footnote,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=INTEGER},
-      </if>
-      <if test="herbalPresID != null">
-        #{herbalPresID,jdbcType=INTEGER},
-      </if>
-      <if test="herbalID != null">
-        #{herbalID,jdbcType=INTEGER},
-      </if>
-      <if test="dosage != null">
-        #{dosage,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="footnote != null">
-        #{footnote,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.HerbalDetailed">
-    update herbaldetailed
-    <set>
-      <if test="herbalPresID != null">
-        HerbalPresID = #{herbalPresID,jdbcType=INTEGER},
-      </if>
-      <if test="herbalID != null">
-        HerbalID = #{herbalID,jdbcType=INTEGER},
-      </if>
-      <if test="dosage != null">
-        Dosage = #{dosage,jdbcType=VARCHAR},
-      </if>
-      <if test="price != null">
-        Price = #{price,jdbcType=DECIMAL},
-      </if>
-      <if test="footnote != null">
-        Footnote = #{footnote,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.HerbalDetailed">
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.HerbalDetailed" >
     update herbaldetailed
     set HerbalPresID = #{herbalPresID,jdbcType=INTEGER},
       HerbalID = #{herbalID,jdbcType=INTEGER},

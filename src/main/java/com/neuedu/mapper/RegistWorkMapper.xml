@@ -1,156 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neuedu.mapper.RegistWorkMapper">
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.RegistWork">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="RegisterID" jdbcType="INTEGER" property="registerID" />
-    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
-    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neuedu.mapper.RegistWorkMapper" >
+  <resultMap id="BaseResultMap" type="com.neuedu.pojo.RegistWork" >
+    <id column="ID" property="ID" jdbcType="INTEGER" />
+    <result column="RegisterID" property="registerID" jdbcType="INTEGER" />
+    <result column="StartTime" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="EndTime" property="endTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     ID, RegisterID, StartTime, EndTime
   </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from registwork
     where ID = #{ID,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
+  <delete id="deleteByPrimaryKey" parameterType="Integer" >
     delete from registwork
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.RegistWork">
+  <insert id="insert" parameterType="com.neuedu.pojo.RegistWork" >
     insert into registwork (ID, RegisterID, StartTime, 
       EndTime)
     values (#{ID,jdbcType=INTEGER}, #{registerID,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
       #{endTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.RegistWork">
+  <insert id="insertSelective" parameterType="com.neuedu.pojo.RegistWork" >
     insert into registwork
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         ID,
       </if>
-      <if test="registerID != null">
+      <if test="registerID != null" >
         RegisterID,
       </if>
-      <if test="startTime != null">
+      <if test="startTime != null" >
         StartTime,
       </if>
-      <if test="endTime != null">
+      <if test="endTime != null" >
         EndTime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ID != null" >
         #{ID,jdbcType=INTEGER},
       </if>
-      <if test="registerID != null">
+      <if test="registerID != null" >
         #{registerID,jdbcType=INTEGER},
       </if>
-      <if test="startTime != null">
+      <if test="startTime != null" >
         #{startTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="endTime != null">
+      <if test="endTime != null" >
         #{endTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.RegistWork">
+  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.RegistWork" >
     update registwork
-    <set>
-      <if test="registerID != null">
+    <set >
+      <if test="registerID != null" >
         RegisterID = #{registerID,jdbcType=INTEGER},
       </if>
-      <if test="startTime != null">
+      <if test="startTime != null" >
         StartTime = #{startTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="endTime != null">
+      <if test="endTime != null" >
         EndTime = #{endTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.RegistWork">
-    update registwork
-    set RegisterID = #{registerID,jdbcType=INTEGER},
-      StartTime = #{startTime,jdbcType=TIMESTAMP},
-      EndTime = #{endTime,jdbcType=TIMESTAMP}
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.RegistWork">
-    <id column="ID" jdbcType="INTEGER" property="ID" />
-    <result column="RegisterID" jdbcType="INTEGER" property="registerID" />
-    <result column="StartTime" jdbcType="TIMESTAMP" property="startTime" />
-    <result column="EndTime" jdbcType="TIMESTAMP" property="endTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    ID, RegisterID, StartTime, EndTime
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from registwork
-    where ID = #{ID,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="Integer">
-    delete from registwork
-    where ID = #{ID,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.RegistWork">
-    insert into registwork (ID, RegisterID, StartTime, 
-      EndTime)
-    values (#{ID,jdbcType=INTEGER}, #{registerID,jdbcType=INTEGER}, #{startTime,jdbcType=TIMESTAMP}, 
-      #{endTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.RegistWork">
-    insert into registwork
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        ID,
-      </if>
-      <if test="registerID != null">
-        RegisterID,
-      </if>
-      <if test="startTime != null">
-        StartTime,
-      </if>
-      <if test="endTime != null">
-        EndTime,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ID != null">
-        #{ID,jdbcType=INTEGER},
-      </if>
-      <if test="registerID != null">
-        #{registerID,jdbcType=INTEGER},
-      </if>
-      <if test="startTime != null">
-        #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null">
-        #{endTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.RegistWork">
-    update registwork
-    <set>
-      <if test="registerID != null">
-        RegisterID = #{registerID,jdbcType=INTEGER},
-      </if>
-      <if test="startTime != null">
-        StartTime = #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null">
-        EndTime = #{endTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where ID = #{ID,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.RegistWork">
+  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.RegistWork" >
     update registwork
     set RegisterID = #{registerID,jdbcType=INTEGER},
       StartTime = #{startTime,jdbcType=TIMESTAMP},
