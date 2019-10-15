@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neuedu.mapper.RegisterMapper" >
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.Register" >
+  <resultMap id="BaseResultMapRegister" type="com.neuedu.pojo.Register" >
     <id column="ID" property="ID" jdbcType="INTEGER" />
     <result column="CaseNumber" property="caseNumber" jdbcType="VARCHAR" />
     <result column="RealName" property="realName" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     VisitDate, Noon, DeptID, UserID, RegistLeID, SettleID, IsBook, RegistTime, RegisterID, 
     VisitState
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMapRegister" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from register
@@ -257,7 +257,7 @@
     where ID = #{ID,jdbcType=INTEGER}
   </update>
 
-  <select id="getRegisterByState" resultMap="BaseResultMap" parameterType="Integer">
+  <select id="getRegisterByState" resultMap="BaseResultMapRegister" parameterType="Integer">
     select
     <include refid="Base_Column_List"/>
     from register
