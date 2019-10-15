@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neuedu.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.neuedu.pojo.User" >
+  <resultMap id="BaseResultMapUser" type="User" >
     <id column="ID" property="ID" jdbcType="INTEGER" />
     <result column="UserName" property="userName" jdbcType="VARCHAR" />
     <result column="Password" property="password" jdbcType="VARCHAR" />
@@ -14,10 +14,10 @@
     <result column="DelMark" property="delMark" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, UserName, Password, RealName, UseType, DocTitleID, IsScheduling, DeptID, RegistLeID, 
+    ID, UserName, Password, RealName, UseType, DocTitleID, IsScheduling, DeptID, RegistLeID,
     DelMark
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMapUser" parameterType="Integer" >
     select 
     <include refid="Base_Column_List" />
     from user
@@ -27,7 +27,7 @@
     delete from user
     where ID = #{ID,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.neuedu.pojo.User" >
+  <insert id="insert" parameterType="User" >
     insert into user (ID, UserName, Password, 
       RealName, UseType, DocTitleID, 
       IsScheduling, DeptID, RegistLeID, 
@@ -37,7 +37,7 @@
       #{isScheduling,jdbcType=CHAR}, #{deptID,jdbcType=INTEGER}, #{registLeID,jdbcType=INTEGER}, 
       #{delMark,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.neuedu.pojo.User" >
+  <insert id="insertSelective" parameterType="User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="ID != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.neuedu.pojo.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="User" >
     update user
     <set >
       <if test="userName != null" >
@@ -137,7 +137,7 @@
     </set>
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.User" >
+  <update id="updateByPrimaryKey" parameterType="User" >
     update user
     set UserName = #{userName,jdbcType=VARCHAR},
       Password = #{password,jdbcType=VARCHAR},
@@ -150,20 +150,10 @@
       DelMark = #{delMark,jdbcType=INTEGER}
     where ID = #{ID,jdbcType=INTEGER}
   </update>
-  <select id="login" parameterType="User" resultMap="loginResultMap">
-    select * from user
+  <select id="login" resultType="User">
+    select
+    <include refid="Base_Column_List"/>
+    from user
     where username=#{userName} and password=#{password}
   </select>
-  <resultMap id="loginResultMap" type="User">
-    <id property="ID" column="ID"></id>
-    <result property="userName" column="userName"></result>
-    <result property="password" column="password"></result>
-    <result property="realName" column="realName"></result>
-    <result property="useType" column="useType"></result>
-    <result property="docTitleID" column="docTitleID"></result>
-    <result property="isScheduling" column="isScheduling"></result>
-    <result property="deptID" column="deptID"></result>
-    <result property="registLeID" column="registLeID"></result>
-    <result property="delMark" column="delMark"></result>
-  </resultMap>
 </mapper>

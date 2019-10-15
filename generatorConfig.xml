@@ -52,7 +52,7 @@
 		 enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"    
                enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
-               <columnOverride column="id" javaType="Integer" />
+			<columnOverride column="id" javaType="Integer" />
          </table>
 		<table schema="root" tableName="constantitem" domainObjectName="ConstantItem"
 			   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
