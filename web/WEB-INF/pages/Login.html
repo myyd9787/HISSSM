@@ -24,7 +24,7 @@
             <input name="password" placeholder="密码" type="password" lay-verify="required" class="layui-input">
             <hr class="hr15">
             <div class="layui-input-inline">
-                <select name="UseType" >
+                <select name="useType" >
                     <option value="1">医院管理员</option>
                     <option value="2">挂号收费员</option>
                     <option value="3">门诊医生</option>
@@ -62,14 +62,14 @@
                         data:JSON.stringify(data.field),
                         contentType:'application/json;charset=utf-8',
                         success:function (res) {
-                            if (res!=''||res!=null){
+                            if (res!==''&&res!=null){
                                 location.href='/'+res+'.action';
                             }else{
                                 // location.href='/toLogin.action';
                                 layer.msg('用户名或密码输入错误，请重新输入！');
                             }
                         }
-                     })
+                     });
                      return false;
               });
         });
