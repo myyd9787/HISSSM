@@ -15,7 +15,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/Welcome.action")
+    //跳转欢迎页
+    @RequestMapping("/toWelcome.action")
     public String toWelcome(){
         return "Welcome";
     }
@@ -29,7 +30,7 @@ public class UserController {
     //执行登录
     @RequestMapping("/login.action")
     public @ResponseBody String login(HttpSession session, @RequestBody User user) throws Exception {
-        User loginUser = userService.login(user.getUserName(), user.getPassword());
+        User loginUser = userService.login(user);
 
         if (loginUser!=null&&
                 loginUser.getUserName().equals(user.getUserName())&&
@@ -54,32 +55,38 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/Admin.action")
+    //跳转管理员
+    @RequestMapping("/toAdmin.action")
     public String toAdmin(){
         return "Admin";
     }
 
-    @RequestMapping("/GuaHaoYuan.action")
+    //跳转挂号员
+    @RequestMapping("/toGuaHaoYuan.action")
     public String toGuaHaoYuan(){
         return "GuaHaoYuan";
     }
 
-    @RequestMapping("/Doctor.action")
+    //跳转医生
+    @RequestMapping("/toDoctor.action")
     public String toDoctor(){
-        return "Doctor";
+        return "doctor/Doctor";
     }
 
-    @RequestMapping("/Tech.action")
+    //跳转医生技师
+    @RequestMapping("/toTech.action")
     public String toTech(){
         return "Tech";
     }
 
-    @RequestMapping("/Drug")
+    //跳转药管理
+    @RequestMapping("/toDrug.action")
     public String toDrug(){
         return "Drug";
     }
 
-    @RequestMapping("/Finance")
+    //跳转财务管理
+    @RequestMapping("/toFinance.action")
     public String toFinance(){
         return "Finance";
     }

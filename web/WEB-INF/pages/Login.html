@@ -60,7 +60,7 @@
                         contentType:'application/json;charset=utf-8',
                         success:function (res) {
                             if (res!==''&&res!=null){
-                                location.href='/'+res+'.action';
+                                location.href='/to'+res+'.action';
                             }else{
                                 // location.href='/toLogin.action';
                                 layer.msg('用户名或密码输入错误，请重新输入！');

@@ -13,16 +13,10 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 登录验证
-     * @param userName 用户名
-     * @param password 密码
      * @return User对象
      *
      */
-    public User login(String userName, String password) throws Exception {
-        //将前端传递来的数据封装到User对象中
-        User user = new User();
-        user.setUserName(userName);
-        user.setPassword(password);
+    public User login(User user) throws Exception {
         return userMapper.login(user);
     }
 }
