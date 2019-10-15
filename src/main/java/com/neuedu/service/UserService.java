@@ -8,5 +8,6 @@ public interface UserService {
      * @return User对象
      *
      */
-    User login(User user) throws Exception;
+    public User login(User user) throws Exception;
+
 }

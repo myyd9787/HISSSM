@@ -1,0 +1,18 @@
+调试过程中莫名出现Invalid bound statement (not found):Invalid bound statement (not found):绑定错误
+咨询老师和查阅资料后发现是xml格式的配置文件需放在resources文件夹下,
+解决方法有2种:
+1. 在resources里新建与src相同路径的mapper文件夹, 并将mapper.xml文件放入;
+2. 在pom.xml中<modelVersion>后添加以下代码
+
+    <build>
+        <!--这个元素描述了项目相关的所有资源路径列表，例如和项目相关的属性文件，这些资源被包含在最终的打包文件里。-->
+        <resources>
+            <resource>
+                <!--   描述存放资源的目录，该路径相对POM路径-->
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>

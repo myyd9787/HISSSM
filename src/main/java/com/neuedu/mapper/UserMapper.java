@@ -1,8 +1,9 @@
 package com.neuedu.mapper;
 
 import com.neuedu.pojo.User;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserMapper {
+public interface UserMapper extends Mapper {
     int deleteByPrimaryKey(Integer ID);
 
     int insert(User record);

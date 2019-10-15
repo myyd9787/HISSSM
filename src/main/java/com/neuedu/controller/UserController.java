@@ -31,10 +31,8 @@ public class UserController {
     @RequestMapping("/login.action")
     public @ResponseBody String login(HttpSession session, @RequestBody User user) throws Exception {
         User loginUser = userService.login(user);
-
         if (loginUser!=null&&
-                loginUser.getUserName().equals(user.getUserName())&&
-                loginUser.getPassword().equals(user.getPassword())){
+                loginUser.getUseType().equals(user.getUseType())){
             if (loginUser.getUseType()==1){
                 return "Admin";
             }else if (loginUser.getUseType()==2){
