@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
-    @RequestMapping("/registerList.action")
-    public String getRegisterByState(Model model){
-        model.addAttribute("registerList", doctorService.getRegisterByState(1,1,10));
-        return "doctor/registerList";
-    }
+
+//    @RequestMapping("/medicalHistory.action")
+//    public String toMedicalHistory(){
+//        return "doctor/medicalHistory";
+//
+//    }
 }
