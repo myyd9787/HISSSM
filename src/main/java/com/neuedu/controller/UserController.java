@@ -15,6 +15,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/Welcome.action")
+    public String toWelcome(){
+        return "Welcome";
+    }
+
     //跳转登录页
     @RequestMapping("/toLogin.action")
     public String toLogin(){
@@ -79,8 +84,5 @@ public class UserController {
         return "Finance";
     }
 
-    @RequestMapping("/Welcome.action")
-    public String toWelcome(){
-        return "Welcome";
-    }
+
 }

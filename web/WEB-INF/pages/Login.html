@@ -62,7 +62,7 @@
                         data:JSON.stringify(data.field),
                         contentType:'application/json;charset=utf-8',
                         success:function (res) {
-                            if (res==''||res!=null){
+                            if (res!=''||res!=null){
                                 location.href='/'+res+'.action';
                             }else{
                                 // location.href='/toLogin.action';
