@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><!--门诊医生-->
+<html lang="en"><!--挂号收费员-->
 
 	<head>
 		<meta charset="UTF-8">
@@ -8,19 +8,19 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-		<link rel="shortcut icon" href="../../../favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" type="text/css" href="../../../lib/layui/css/layui.css"/>
-		<link rel="stylesheet" href="../../../static/css/font.css">
-		<link rel="stylesheet" href="../../../static/css/weadmin.css">
-		<script type="text/javascript" src="../../../lib/layui/layui.js" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="../../../css/index.css"/>
+		<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css"/>
+		<link rel="stylesheet" href="../../static/css/font.css">
+		<link rel="stylesheet" href="../../static/css/weadmin.css">
+		<script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css"/>
 	</head>
 
 	<body>
 		<!-- 顶部开始 -->
 		<div class="container">
 			<div class="logo">
-				<a href="./Doctor.html">东软云医院HIS系统</a>
+				<a href="./Regist.html">东软云医院HIS系统</a>
 			</div>
 			<div class="left_open">
 				<!-- <i title="展开左侧栏" class="iconfont">&#xe699;</i> -->
@@ -28,7 +28,7 @@
 			</div>
 			<ul class="layui-nav right" lay-filter="">
 				<li class="layui-nav-item">
-					<a href="javascript:;">扁鹊</a>
+					<a href="javascript:;">挂号收费员</a>
 					<dl class="layui-nav-child">
 						<!-- 二级菜单 -->
 <!--						<dd>-->
@@ -51,38 +51,69 @@
 		<div class="left-nav">
 			<div id="side-nav">
 				<ul id="nav">
-					<!-- 门诊医生 -->
+					<!-- 挂号收费 -->
 					<li>
 						<a href="javascript:;">
-							<i class="iconfont">&#xe705;</i>
-							<cite>门诊医生</cite>
+							<i class="iconfont">&#xe6b8;</i>
+							<cite>挂号收费</cite>
 							<i class="iconfont nav_right">&#xe697;</i>
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a _href="medicalHistory.action">
+								<a _href="pages/Registered-Fees/On-site-registration.html"><!-- 挂号界面 -->
 									<i class="iconfont">&#xe6a7;</i>
-									<cite>门诊病历</cite>
+									<cite>现场挂号</cite>
 								</a>
 							</li>
 							<li>
-								<a _href="category.action">
+								<a _href="pages/Registered-Fees/Withdraw-number.html">
 									<i class="iconfont">&#xe6a7;</i>
-									<cite>医技模版管理</cite>
+									<cite>退号</cite>
+
 								</a>
 							</li>
-							<!--<li>-->
-								<!--<a _href="./pages/article/tree.html">-->
-									<!--<i class="iconfont">&#xe6a7;</i>-->
-									<!--<cite>西药处方管理</cite>-->
-								<!--</a>-->
-							<!--</li>-->
-							<!--<li>-->
-								<!--<a _href="./pages/article/tree.html">-->
-									<!--<i class="iconfont">&#xe6a7;</i>-->
-									<!--<cite>中药处方管理</cite>-->
-								<!--</a>-->
-							<!--</li>-->
+							<li>
+								<a _href="pages/Registered-Fees/charge.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>收费</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Refund.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>退费</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Invoice-replacement.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>发票补打</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Invoice-Reprint.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>发票重打</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Patient-fee-inquiry.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>患者费用查询</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Daily-knots.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>日结</cite>
+								</a>
+							</li>
+							<li>
+								<a _href="pages/Registered-Fees/Daily-settlement-query.html">
+									<i class="iconfont">&#xe6a7;</i>
+									<cite>日结查询</cite>
+								</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -98,7 +129,7 @@
 				</ul>
 				<div class="layui-tab-content">
 					<div class="layui-tab-item layui-show">
-						<iframe src='./toWelcome.action' frameborder="0" scrolling="yes" class="weIframe"></iframe>
+						<iframe src='/toWelcome.action' frameborder="0" scrolling="yes" class="weIframe"></iframe>
 					</div>
 				</div>
 			</div>
@@ -121,13 +152,25 @@
 //			  var admin = layui.admin;
 //			});
 			layui.config({
-			  base: '../../static/js/'
+			  base: '../../static/js'
 			  ,version: '101100'
 			}).use('admin');
 			layui.use(['jquery','admin'], function(){
 				var $ = layui.jquery;
-
-
+				// $(function(){
+				// 	var login = JSON.parse(localStorage.getItem("login"));
+				// 	if(login){
+				// 		if(login=0){
+				// 			window.location.href='Login.html';
+				// 			return false;
+				// 		}else{
+				// 			return false;
+				// 		}
+				// 	}else{
+				// 		window.location.href='Login.html';
+				// 		return false;
+				// 	}
+				// });
 			});
 
 		</script>

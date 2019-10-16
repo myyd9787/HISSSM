@@ -36,7 +36,7 @@ public class UserController {
             if (loginUser.getUseType()==1){
                 return "Admin";
             }else if (loginUser.getUseType()==2){
-                return "GuaHaoYuan";
+                return "Regist";
             }else if (loginUser.getUseType()==3){
                 return "Doctor";
             }else if (loginUser.getUseType()==4){
@@ -60,9 +60,9 @@ public class UserController {
     }
 
     //跳转挂号员
-    @RequestMapping("/toGuaHaoYuan.action")
-    public String toGuaHaoYuan(){
-        return "GuaHaoYuan";
+    @RequestMapping("/toRegist.action")
+    public String toRegist(){
+        return "Regist";
     }
 
     //跳转医生
