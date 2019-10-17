@@ -234,15 +234,7 @@
             page: true,
             id: 'state0',
             event: true,
-			url: '../../DoctorServlet?method=state0',
-            parseData: function (res) {
-                return {
-                    'code': 0,
-                    'msg': '',
-                    'count': 100,
-                    'data': res
-                }
-            },
+			url: './getRegisterByState.action?state=1',
             cols: [[
                 {field: 'caseNumber', title: '病历号', width: '25%'}//病历号ID
                 , {field: 'realName', title: '姓名', width: '25%'}//姓名
@@ -272,15 +264,7 @@
             page: true,
             id: 'state1',
             event: true,
-            url: '../../DoctorServlet?method=state1',
-            parseData: function (res) {
-                return {
-                    'code': 0,
-                    'msg': '',
-                    'count': 100,
-                    'data': res
-                }
-            },
+            url: './getRegisterByState.action?state=2',
             cols: [[
                 {field: 'caseNumber', title: '病历号', width: '25%'}//病历号ID
                 , {field: 'realName', title: '姓名', width: '25%'}//姓名
@@ -298,40 +282,6 @@
                 })
             }
         });
-        /************已诊患者列表***********/
-        /*var state1 = table.render({
-            elem: '#state1',
-            cellMinWidth: 80,
-            skin: 'line',
-			height: 475,
-			page: true,
-            id: 'state1',
-            event: true,
-			url: '../../DoctorServlet?method=state1',
-            parseData: function (res) {
-                return {
-                    'code': 0,
-                    'msg': '',
-                    'count': 1000,
-                    'data': res
-                }
-            },
-            cols: [[
-                {field: 'caseNumber', title: '病历号', width: '25%', sort: true}//病历号ID
-                , {field: 'realName', title: '姓名', width: '25%'}//姓名
-                , {field: 'age', title: '年龄', width: '25%'},//年龄
-				, {field: 'gender', title: '性别', width: '25%'}
-            ]],
-			done: function(res, curr, count){
-				$("[data-field='gender']").children().each(function(){
-					if($(this).text()=='0'){
-						$(this).text('男')
-					}else if($(this).text()=='1'){
-						$(this).text('女')
-					}
-				})
-			}
-        });*/
 
 		//搜索
         $('.demoTable .layui-btn').on('click', function () {

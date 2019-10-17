@@ -257,10 +257,17 @@
     where ID = #{ID,jdbcType=INTEGER}
   </update>
 
-  <select id="getRegisterByState" resultMap="BaseResultMapRegister" parameterType="Integer">
+  <select id="getRegisterByState" resultMap="BaseResultMapRegister">
     select
     <include refid="Base_Column_List"/>
     from register
-    where VisitState = #{state, jdbcType = INTEGER}
+    where VisitState = #{state}
+    limit #{startIndex}, #{pageSize}
+  </select>
+
+  <select id="getRegisterByStateCount" resultType="Integer">
+    select count(id)
+    from register
+    where VisitState = #{state}
   </select>
 </mapper>

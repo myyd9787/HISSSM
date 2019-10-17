@@ -1,0 +1,61 @@
+
+package com.neuedu.filter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+
+/**
+ * 控制用户对某些请求地址的访问权限
+ */
+
+@WebFilter(urlPatterns = { "/*" },
+        initParams = {@WebInitParam(name = "loginPage", value = "login.jsp"),
+                    @WebInitParam(name = "loginServlet", value = "LoginServlet") })
+public class RightFilter implements Filter {
+    // 用于获取初始化参数
+    private FilterConfig config;
+
+    public void init(FilterConfig fConfig) throws ServletException {
+        this.config = fConfig;
+    }
+
+    public void destroy() {
+        this.config = null;
+    }
+
+    public void doFilter(ServletRequest request, ServletResponse response,
+                         FilterChain chain) throws IOException, ServletException {
+        // 获取初始化参数
+        String loginPage = config.getInitParameter("loginPage");
+        String loginServlet = config.getInitParameter("loginServlet");
+        HttpServletRequest req = (HttpServletRequest) request;
+        // 获取会话对象
+        HttpSession session = req.getSession();
+        int useType = (Integer)session.getAttribute("useType");
+        // 获取请求资源路径（不包含请求参数）
+        String requestPath = req.getServletPath();
+        System.out.println("session filter path.....:"+requestPath);
+        if (session.getAttribute("username") != null
+                || requestPath.endsWith(loginPage) || requestPath.endsWith(loginServlet)) {
+            // 如果用户会话域属性user存在，并且请求资源为登录页面和登录处理的Servlet，则“放行”请求
+            chain.doFilter(request, response);
+        } else {
+            // 对请求进行拦截，返回登录页面
+            request.setAttribute("tip", "您还未登录，请先登录！");
+            request.getRequestDispatcher(loginPage).forward(request, response);
+        }
+
+    }
+}
+

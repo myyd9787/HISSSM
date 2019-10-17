@@ -15,6 +15,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //验证是否登录
+
     //跳转欢迎页
     @RequestMapping("/toWelcome.action")
     public String toWelcome(){
@@ -31,6 +33,7 @@ public class UserController {
     @RequestMapping("/login.action")
     public @ResponseBody String login(HttpSession session, @RequestBody User user) throws Exception {
         User loginUser = userService.login(user);
+        session.setAttribute("useType", user.getUseType());
         if (loginUser!=null&&
                 loginUser.getUseType().equals(user.getUseType())){
             if (loginUser.getUseType()==1){
