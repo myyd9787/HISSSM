@@ -74,7 +74,7 @@ public class UserController {
     //跳转医生技师
     @RequestMapping("/toTech.action")
     public String toTech(){
-        return "Tech";
+        return "medical/Tech";
     }
 
     //跳转药管理
@@ -89,5 +89,10 @@ public class UserController {
         return "Finance";
     }
 
+    //跳转医技处置
+//    @RequestMapping("/toCheckPatient.action")
+//    public String toCheckPatient(){
+//        return "medical/checkPatient";
+//    }
 
 }
