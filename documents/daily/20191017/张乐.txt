@@ -1,0 +1,8 @@
+1. 遇到异常:
+    Mybatis框架, 查询语句中出现多个参数时会出现找不到参数的异常, 在参数前加上@Param注解即可解决.
+    Caused by: org.apache.ibatis.binding.BindingException: Parameter 'xxx' not found
+    List<Register> getRegisterByState(@Param("state") int state,
+                                      @Param("startIndex") int startIndex,
+                                      @Param("pageSize") int pageSize);
+
+2.实现病历首页根据状态查询挂号功能.
